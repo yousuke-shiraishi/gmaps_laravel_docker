@@ -1,0 +1,652 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel API Documentation",
+        "_postman_id": "c071933b-744c-447f-9429-5806ddcd24b7",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST api\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST api\/refresh",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/refresh",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/refresh"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/health",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/health",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/health"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"status\":\"OK\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Gmap",
+            "description": "",
+            "item": [
+                {
+                    "name": "\u516c\u958b\u4e2d\u306eGmap\u4e00\u89a7\u3092\u53d6\u5f97",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gmaps",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gmaps"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[\n  {\n    \"id\": 1,\n    \"title\": \"My Place\",\n    \"latitude\": 35.6895,\n    \"longitude\": 139.6917,\n    \"magic_word\": \"\",\n    \"created_at\": \"2025-07-09T00:00:00.000000Z\"\n  }\n]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\u516c\u958b\u691c\u7d22\uff08\u30e6\u30fc\u30b6\u30fc\u540d\uff0b\u8a95\u751f\u65e5\uff09",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gmaps\/public-search",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gmaps\/public-search"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"yosuke\",\"birth\":\"1980-01-01\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[\n  {\n    \"id\": 1,\n    \"title\": \"Tokyo Tower\",\n    \"magic_word\": \"\"\n  }\n]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\u975e\u516c\u958b\u691c\u7d22\uff08email\uff0b\u5408\u8a00\u8449\uff09",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gmaps\/private-search",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gmaps\/private-search"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"yosuke@example.com\",\"magic_word\":\"secretword\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[\n  {\n    \"id\": 2,\n    \"title\": \"\u79d8\u5bc6\u306e\u5834\u6240\",\n    \"magic_word\": \"5ebe2294ecd0e0f08eab7690d2a6ee69\"\n  }\n]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Gmap \u3092\u767b\u9332\uff08\u753b\u50cf\u4ed8\u304d\uff09",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gmaps",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gmaps"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "My Home",
+                                    "type": "text",
+                                    "description": "\u30bf\u30a4\u30c8\u30eb"
+                                },
+                                {
+                                    "key": "comment",
+                                    "value": "\u6771\u4eac\u306e\u62e0\u70b9",
+                                    "type": "text",
+                                    "description": "\u30b3\u30e1\u30f3\u30c8"
+                                },
+                                {
+                                    "key": "latitude",
+                                    "value": "35.6895",
+                                    "type": "text",
+                                    "description": "\u7def\u5ea6"
+                                },
+                                {
+                                    "key": "longitude",
+                                    "value": "139.6917",
+                                    "type": "text",
+                                    "description": "\u7d4c\u5ea6"
+                                },
+                                {
+                                    "key": "magic_word",
+                                    "value": "secretword",
+                                    "type": "text",
+                                    "description": "\u5408\u8a00\u8449\uff08\u4efb\u610f\uff09"
+                                },
+                                {
+                                    "key": "picture",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n  \"id\": 1,\n  \"title\": \"My Home\",\n  \"latitude\": 35.6895,\n  \"longitude\": 139.6917,\n  \"user_id\": 1,\n  \"picture_path\": \"gmaps\/photo.jpg\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Gmap \u3092\u524a\u9664\uff08\u30aa\u30fc\u30ca\u30fc\u306e\u307f\u8a31\u53ef\uff09",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/gmaps\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/gmaps\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "consequatur",
+                                    "description": "The ID of the gmap."
+                                },
+                                {
+                                    "id": "gmap",
+                                    "key": "gmap",
+                                    "value": "1",
+                                    "description": "Gmap ID"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"\u524a\u9664\u3055\u308c\u307e\u3057\u305f\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n  \"message\": \"\u6a29\u9650\u304c\u3042\u308a\u307e\u305b\u3093\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User Management",
+            "description": "",
+            "item": [
+                {
+                    "name": "\u30e6\u30fc\u30b6\u30fc\u4e00\u89a7\u3092\u53d6\u5f97",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Yosuke Shiraishi\",\n    \"email\": \"yosuke@example.com\"\n  }\n]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\u30e6\u30fc\u30b6\u30fc\u767b\u9332",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Yosuke Shiraishi\",\"username\":\"yosuke\",\"email\":\"yosuke@example.com\",\"password\":\"password123\",\"birth\":\"1980-01-01\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\n  \"message\": \"User\u306e\u751f\u6210\u304c\u6210\u529f\",\n  \"token\": \"jwt.token.here\",\n  \"user\": {\n    \"id\": 1,\n    \"name\": \"Yosuke Shiraishi\",\n    \"username\": \"yosuke\",\n    \"email\": \"yosuke@example.com\",\n    \"birth\": \"1980-01-01\"\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\u6307\u5b9a\u3057\u305f\u30e6\u30fc\u30b6\u30fc\u60c5\u5831\u3092\u53d6\u5f97",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "\u30e6\u30fc\u30b6\u30fcID"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"name\": \"Yosuke Shiraishi\",\n  \"email\": \"yosuke@example.com\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\u30e6\u30fc\u30b6\u30fc\u60c5\u5831\u3092\u66f4\u65b0",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "\u30e6\u30fc\u30b6\u30fcID"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Yosuke Updated\",\"username\":\"yosuke-updated\",\"email\":\"yosuke-updated@example.com\",\"password\":\"newpass123\",\"birth\":\"1981-01-01\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"id\": 1,\n  \"name\": \"Yosuke Updated\",\n  \"email\": \"yosuke-updated@example.com\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\u30e6\u30fc\u30b6\u30fc\u3092\u524a\u9664",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "\u30e6\u30fc\u30b6\u30fcID"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"message\": \"User\u524a\u9664\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

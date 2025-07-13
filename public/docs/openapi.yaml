@@ -1,0 +1,562 @@
+openapi: 3.0.3
+info:
+  title: 'Laravel API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+tags:
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: Gmap
+    description: ''
+  -
+    name: 'User Management'
+    description: ''
+paths:
+  /api/login:
+    post:
+      summary: ''
+      operationId: postApiLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/logout:
+    post:
+      summary: ''
+      operationId: postApiLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/refresh:
+    post:
+      summary: ''
+      operationId: postApiRefresh
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/health:
+    get:
+      summary: ''
+      operationId: getApiHealth
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: OK
+                properties:
+                  status:
+                    type: string
+                    example: OK
+      tags:
+        - Endpoints
+      security: []
+  /api/gmaps:
+    get:
+      summary: 公開中のGmap一覧を取得
+      operationId: Gmap
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    title: 'My Place'
+                    latitude: 35.6895
+                    longitude: 139.6917
+                    magic_word: ''
+                    created_at: '2025-07-09T00:00:00.000000Z'
+      tags:
+        - Gmap
+      security: []
+    post:
+      summary: 'Gmap を登録（画像付き）'
+      operationId: gmap
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  title: 'My Home'
+                  latitude: 35.6895
+                  longitude: 139.6917
+                  user_id: 1
+                  picture_path: gmaps/photo.jpg
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  title:
+                    type: string
+                    example: 'My Home'
+                  latitude:
+                    type: number
+                    example: 35.6895
+                  longitude:
+                    type: number
+                    example: 139.6917
+                  user_id:
+                    type: integer
+                    example: 1
+                  picture_path:
+                    type: string
+                    example: gmaps/photo.jpg
+      tags:
+        - Gmap
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: タイトル
+                  example: 'My Home'
+                  nullable: false
+                comment:
+                  type: string
+                  description: コメント
+                  example: 東京の拠点
+                  nullable: false
+                latitude:
+                  type: number
+                  description: 緯度
+                  example: 35.6895
+                  nullable: false
+                longitude:
+                  type: number
+                  description: 経度
+                  example: 139.6917
+                  nullable: false
+                magic_word:
+                  type: string
+                  description: 合言葉（任意）
+                  example: secretword
+                  nullable: true
+                picture:
+                  type: string
+                  format: binary
+                  description: 画像ファイル（任意）
+                  nullable: false
+              required:
+                - title
+                - latitude
+                - longitude
+  /api/gmaps/public-search:
+    get:
+      summary: 公開検索（ユーザー名＋誕生日）
+      operationId: ''
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    title: 'Tokyo Tower'
+                    magic_word: ''
+      tags:
+        - Gmap
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: ユーザー名
+                  example: yosuke
+                  nullable: false
+                birth:
+                  type: string
+                  description: 生年月日（YYYY-MM-DD）
+                  example: '1980-01-01'
+                  nullable: false
+              required:
+                - username
+                - birth
+      security: []
+  /api/gmaps/private-search:
+    get:
+      summary: 非公開検索（email＋合言葉）
+      operationId: email
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 2
+                    title: 秘密の場所
+                    magic_word: 5ebe2294ecd0e0f08eab7690d2a6ee69
+      tags:
+        - Gmap
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: メールアドレス
+                  example: yosuke@example.com
+                  nullable: false
+                magic_word:
+                  type: string
+                  description: 合言葉
+                  example: secretword
+                  nullable: false
+              required:
+                - email
+                - magic_word
+  '/api/gmaps/{id}':
+    delete:
+      summary: 'Gmap を削除（オーナーのみ許可）'
+      operationId: gmap
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 削除されました
+                properties:
+                  message:
+                    type: string
+                    example: 削除されました
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 権限がありません
+                properties:
+                  message:
+                    type: string
+                    example: 権限がありません
+      tags:
+        - Gmap
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the gmap.'
+        example: consequatur
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: gmap
+        description: 'Gmap ID'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/users:
+    get:
+      summary: ユーザー一覧を取得
+      operationId: ''
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: 'Yosuke Shiraishi'
+                    email: yosuke@example.com
+      tags:
+        - 'User Management'
+    post:
+      summary: ユーザー登録
+      operationId: ''
+      description: ''
+      parameters: []
+      responses:
+        201:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Userの生成が成功
+                  token: jwt.token.here
+                  user:
+                    id: 1
+                    name: 'Yosuke Shiraishi'
+                    username: yosuke
+                    email: yosuke@example.com
+                    birth: '1980-01-01'
+                properties:
+                  message:
+                    type: string
+                    example: Userの生成が成功
+                  token:
+                    type: string
+                    example: jwt.token.here
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Yosuke Shiraishi'
+                      username:
+                        type: string
+                        example: yosuke
+                      email:
+                        type: string
+                        example: yosuke@example.com
+                      birth:
+                        type: string
+                        example: '1980-01-01'
+      tags:
+        - 'User Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 名前
+                  example: 'Yosuke Shiraishi'
+                  nullable: false
+                username:
+                  type: string
+                  description: ユーザー名（ログインに使用）
+                  example: yosuke
+                  nullable: false
+                email:
+                  type: string
+                  description: メールアドレス
+                  example: yosuke@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: パスワード（8文字以上）
+                  example: password123
+                  nullable: false
+                birth:
+                  type: string
+                  description: 生年月日（YYYY-MM-DD）
+                  example: '1980-01-01'
+                  nullable: false
+              required:
+                - name
+                - username
+                - email
+                - password
+                - birth
+      security: []
+  '/api/users/{id}':
+    get:
+      summary: 指定したユーザー情報を取得
+      operationId: ''
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'Yosuke Shiraishi'
+                  email: yosuke@example.com
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'Yosuke Shiraishi'
+                  email:
+                    type: string
+                    example: yosuke@example.com
+      tags:
+        - 'User Management'
+    put:
+      summary: ユーザー情報を更新
+      operationId: ''
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'Yosuke Updated'
+                  email: yosuke-updated@example.com
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'Yosuke Updated'
+                  email:
+                    type: string
+                    example: yosuke-updated@example.com
+      tags:
+        - 'User Management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 名前
+                  example: 'Yosuke Updated'
+                  nullable: false
+                username:
+                  type: string
+                  description: ユーザー名
+                  example: yosuke-updated
+                  nullable: false
+                email:
+                  type: string
+                  description: メールアドレス
+                  example: yosuke-updated@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 新しいパスワード
+                  example: newpass123
+                  nullable: false
+                birth:
+                  type: string
+                  description: 生年月日（YYYY-MM-DD）
+                  example: '1981-01-01'
+                  nullable: false
+    delete:
+      summary: ユーザーを削除
+      operationId: ''
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: User削除
+                properties:
+                  message:
+                    type: string
+                    example: User削除
+      tags:
+        - 'User Management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: ユーザーID
+        example: 1
+        required: true
+        schema:
+          type: integer

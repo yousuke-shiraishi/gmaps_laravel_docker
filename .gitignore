@@ -1,0 +1,61 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+/.fleet
+.env.testing
+phpunit.xml
+# キャッシュ・ログ・セッション・コンパイル済みファイル
+/storage/*.key
+/storage/*.log
+/storage/framework/cache/data/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/logs/
+/bootstrap/cache/
+
+/storage/coverage/
+
+# IDE／エディタ設定
+/.idea/
+/.vscode/
+/*.sublime-project
+/*.sublime-workspace
+
+# macOS システムファイル
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# npm/yarn パッケージマネージャ
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS 一時ファイル
+Thumbs.db
+desktop.ini
+
+# Composer 自動生成ファイル
+composer.lock
+
+# PHPUnit キャッシュ
+.phpunit.result.cache
+
+# その他バイナリや自動生成ファイル
+/public/hot
+/public/storage
+/storage/app/public
+*.key
+*.crt
